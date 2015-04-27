@@ -75,6 +75,11 @@ module.exports = function (params, callback) {
     return;
   }
 
+  if (params.timeIncrement &&
+    params.timeIncrement[params.timeIncrement.length-1] === 's') {
+    params.timeIncrement = params.timeIncrement.slice(0, -1);
+  }
+
   if (params.timeIncrement === 'week') {
     params.timeIncrement = 'day';
     params.timeMultiple = 7;
